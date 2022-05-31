@@ -1,0 +1,26 @@
+
+git clone url                           //clonar o git
+
+git status                              //status atual da sua atual branch
+
+git add .                               //adicionar todas alteracoes que vao ser enviadas
+git commit -m "mensagem do commit"      //empacota com uma mensage o codigo
+git push                                //envia o que foi commitado para o git
+git push origin head                    //primeiro push de uma nova branch
+git pull                                //pegar alteracoes do git
+git fetch                               //atualizar branches de acordo com o git
+
+git checkout -b Nomedabranch             //mudar para uma nova branch nomeada Nomedabranch
+
+git checkout Nomedabranch                //mudar para uma branch ja existente Nomedabranch
+
+git branch                               //listar branches
+
+git reset --hard                         //reseta a sua branch na versao inicial
+
+NG == Angular 
+ng new nomerepositorio
+
+
+NPM == Node
+npm install
