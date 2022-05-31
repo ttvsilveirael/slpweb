@@ -1,0 +1,18 @@
+.menu-conteudo {
+    width: 3%;
+    text-align: center;
+    background: orange;
+    margin: 0px;
+    height: 100vh;
+    padding: 0px;
+}
+
+.menu {
+    width: 42px;
+}
+
+.menu-conteudo:hover {
+    width: 250px;
+    transition: all 1s ease-in-out;
+
+}
