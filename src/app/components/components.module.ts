@@ -18,6 +18,6 @@ import { HomeComponent } from "./home/home.component";
         BrowserAnimationsModule,
         FormsModule,
         CommonModule,
-    ],
+    ]
 })
 export class ComponentsModule { }
