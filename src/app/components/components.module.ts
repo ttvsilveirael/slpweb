@@ -5,12 +5,14 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { BrowserModule } from "@angular/platform-browser";
 import { HomeComponent } from "./home/home.component";
 import { MyTextInputComponent } from "./my_text_input/my_text_input.component";
+import { MyButtonComponent } from "./my_button_input/my_button.component";
 
 
 @NgModule({
     declarations: [
         HomeComponent,
-        MyTextInputComponent
+        MyTextInputComponent,
+        MyButtonComponent
     ],
     exports: [
         HomeComponent,
