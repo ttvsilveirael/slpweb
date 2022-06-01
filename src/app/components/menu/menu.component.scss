@@ -1,18 +1,19 @@
 .menu-conteudo {
     width: 3%;
     text-align: center;
-    background: orange;
+    background-image: linear-gradient(to bottom, rgb(151, 151, 151), rgb(255, 255, 255), rgb(151, 151, 151));
     margin: 0px;
     height: 100vh;
     padding: 0px;
+    transition: all 1s ease-in-out;
+    overflow: hidden;
 }
 
 .menu {
-    width: 42px;
+    width: 100%;
+
 }
 
 .menu-conteudo:hover {
     width: 250px;
-    transition: all 1s ease-in-out;
-
 }
