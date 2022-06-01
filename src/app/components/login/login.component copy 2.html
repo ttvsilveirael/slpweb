@@ -1,0 +1,8 @@
+<div class="login-container">
+    <my-image [assetSrc]="'profile.png'"></my-image>
+    <my-textinput [ngClass]="usernameError ? 'error':''" (valueChanged)="setUsername($event)" [placeholder]="'Usuario'">
+    </my-textinput>
+    <my-textinput [ngClass]="passwordError ? 'error':''" (enterEvent)="doLogin()" (valueChanged)="setPassword($event)" [placeholder]="'Senha'"
+        [type]="'password'"></my-textinput>
+    <my-button (click)="doLogin()" [label]="'login'"></my-button>
+</div>
