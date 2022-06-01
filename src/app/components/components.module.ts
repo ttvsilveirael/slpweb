@@ -6,18 +6,21 @@ import { BrowserModule } from "@angular/platform-browser";
 import { HomeComponent } from "./home/home.component";
 import { MenuComponent } from "./menu/menu.component";
 import { MenuItemComponent } from "./menu-item/menu_itemcomponent";
+import { VideoPlayerComponent } from "./video-player/video_player.component";
 
 
 @NgModule({
     declarations: [
         HomeComponent,
         MenuComponent,
-        MenuItemComponent
+        MenuItemComponent,
+        VideoPlayerComponent
     ],
     exports: [
         HomeComponent,
         MenuComponent,
-        MenuItemComponent
+        MenuItemComponent,
+        VideoPlayerComponent
     ],
     imports: [
         BrowserModule,
