@@ -9,6 +9,7 @@ import { MenuComponent } from "./menu/menu.component";
 import { MenuItemComponent } from "./menu-item/menu_itemcomponent";
 import { MyTextInputComponent } from "./my_text_input/my_text_input.component";
 import { MyButtonComponent } from "./my_button_input/my_button.component";
+import { LoginComponent } from "./login/login.component";
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MyButtonComponent } from "./my_button_input/my_button.component";
         MenuComponent,
         MenuItemComponent,
         MyTextInputComponent,
+        LoginComponent,
         MyButtonComponent
     ],
     exports: [
@@ -26,6 +28,7 @@ import { MyButtonComponent } from "./my_button_input/my_button.component";
         MenuComponent,
         MenuItemComponent,
         MyTextInputComponent,
+        LoginComponent,
         MyButtonComponent
     ],
 
