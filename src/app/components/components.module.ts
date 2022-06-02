@@ -6,19 +6,24 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { HomeComponent } from "./home/home.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
 
+import { MenuComponent } from "./menu/menu.component";
+import { MenuItemComponent } from "./menu-item/menu_itemcomponent";
 
 
 @NgModule({
     declarations: [
         HomeComponent,
         ToolbarComponent,
+        MenuComponent,
+        MenuItemComponent,
     ],
     exports: [
         HomeComponent,
         ToolbarComponent,
-        
-        
+        MenuComponent,
+        MenuItemComponent
     ],
+    
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
