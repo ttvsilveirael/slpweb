@@ -24,6 +24,6 @@ import { MenuItemComponent } from "./menu-item/menu_itemcomponent";
         BrowserAnimationsModule,
         FormsModule,
         CommonModule,
-    ],
+    ]
 })
 export class ComponentsModule { }
