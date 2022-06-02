@@ -1,7 +1,7 @@
 <div class="toolbar-container">
     <h1>usuario</h1>
-    <button>menu</button>
-    <div>
+    <button (click)="showmenu=!showmenu">menu</button>
+    <div [hidden]="showmenu">
         <label>perfil</label>
         <label>logout</label>
     </div>
