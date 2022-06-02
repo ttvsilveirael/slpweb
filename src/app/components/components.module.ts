@@ -7,6 +7,8 @@ import { HomeComponent } from "./home/home.component";
 import { ToolbarComponent } from "./toolbar/toolbar.component";
 import { MenuComponent } from "./menu/menu.component";
 import { MenuItemComponent } from "./menu-item/menu_itemcomponent";
+import { MyTextInputComponent } from "./my_text_input/my_text_input.component";
+import { MyButtonComponent } from "./my_button_input/my_button.component";
 
 
 @NgModule({
@@ -15,19 +17,23 @@ import { MenuItemComponent } from "./menu-item/menu_itemcomponent";
         ToolbarComponent,
         MenuComponent,
         MenuItemComponent,
+        MyTextInputComponent,
+        MyButtonComponent
     ],
     exports: [
         HomeComponent,
         ToolbarComponent,
         MenuComponent,
-        MenuItemComponent
+        MenuItemComponent,
+        MyTextInputComponent,
+        MyButtonComponent
     ],
-    
+
     imports: [
         BrowserModule,
         BrowserAnimationsModule,
         FormsModule,
-        CommonModule,        
+        CommonModule,
     ],
 })
 export class ComponentsModule { }

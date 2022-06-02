@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MyTextInputComponent } from '../my_text_input/my_text_input.component';
 
 @Component({
   selector: 'app-home',
@@ -6,4 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
 }
+
