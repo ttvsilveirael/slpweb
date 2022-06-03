@@ -1,19 +1,21 @@
-export class Aula {
-    nome: String;
-    modulo: String;
-    links: [String];
-    descricao: String;
-    next: String;
-    last: String;
-    nivel: String;
-    requisitos: String;
-    twitch: String;
-    youtube: String;
-    status: String;
+import { Modulo } from "./Modulo";
 
-    constructor(nome: String, modulo: String, links: [String] = [''],
-        descricao: String, next: String = '', last: String = '', nivel: String,
-        requisitos: String, twitch: String = '', youtube: String = '', status: String = '') {
+export class Aula {
+    nome: string;
+    modulo: Modulo;
+    links: [string];
+    descricao: string;
+    next: string;
+    last: string;
+    nivel: string;
+    requisitos: string;
+    twitch: string;
+    youtube: string;
+    status: string;
+
+    constructor(nome: string, modulo: Modulo, links: [string] = [''],
+        descricao: string, next: string = '', last: string = '', nivel: string,
+        requisitos: string, twitch: string = '', youtube: string = '', status: string = '') {
 
         this.nome = nome;
         this.modulo = modulo;

@@ -11,6 +11,7 @@ import { MyTextInputComponent } from "./my_text_input/my_text_input.component";
 import { MyButtonComponent } from "./my_button_input/my_button.component";
 import { LoginComponent } from "./login/login.component";
 import { AulasComponent } from "./aulas/aulas.component";
+import { AulaComponent } from "./aula/aula.component";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AulasComponent } from "./aulas/aulas.component";
         LoginComponent,
         MyButtonComponent,
         MyTextInputComponent,
-        AulasComponent
+        AulasComponent,
+        AulaComponent
     ],
     exports: [
         HomeComponent,
@@ -32,7 +34,8 @@ import { AulasComponent } from "./aulas/aulas.component";
         LoginComponent,
         MyButtonComponent,
         MyTextInputComponent,
-        AulasComponent
+        AulasComponent,
+        AulaComponent
     ],
 
     imports: [

@@ -1,5 +1,23 @@
-.aulas{
-    height: 400px;
-    width: 400px;
-    background-color: blue;
+.aulas {
+    height: 100%;
+    width: 100%;
+}
+
+.youtube-videos {
+    display: flex;
+    overflow: auto;
+
+}
+
+.frameAula {
+    margin: 20;
+    border-radius: 20px;
+    border: solid 2px rgb(148, 139, 139);
+}
+
+.video-container {
+    margin: 20px;
+    background: white;
+    border-radius: 5px;
+    padding: 10px;
 }

@@ -1,0 +1,14 @@
+<div class="aula">
+    <div class="video-container">
+        <div class="header">
+            {{aula?.nome}}
+        </div>
+        <iframe class="frameAula" width="280" height="120" [src]="safeSrc(aula)" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+        <div class="footer">
+            {{aula?.descricao}}
+        </div>
+    </div>
+</div>
