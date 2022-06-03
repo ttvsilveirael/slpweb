@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/User';
 
 @Component({
   selector: 'login',
@@ -10,6 +11,7 @@ export class LoginComponent implements OnInit {
   constructor(public router: Router) { }
   usernameError: Boolean = false;
   passwordError: Boolean = false;
+  confirmarSenha: String = '';
 
   ngOnInit(): void {
     this.user = new User('', '');
@@ -25,10 +27,17 @@ export class LoginComponent implements OnInit {
     this.user?.setPassword(event);
   }
 
+  setconfirmarSenha(event: any) {
+    this.confirmarSenha = event;
+  }
+
   doLogin() {
+    if (this.confirmarSenha == this.user?.password) {
+
+    }
     this.usernameError = false;
     this.passwordError = false;
-    
+
     if (this.user == null) {
       console.log("User not detected.");
       this.usernameError = true;
@@ -44,28 +53,12 @@ export class LoginComponent implements OnInit {
       this.passwordError = true;
       return;
     }
-
     localStorage.setItem('user', JSON.stringify(this.user));
+    this.router.navigate(['']);
+
   }
 
   doLogout() {
     localStorage.removeItem('user');
-  }
-}
-
-class User {
-  password: String;
-  username: String;
-
-  constructor(username: String, password: String) {
-    this.password = password;
-    this.username = username;
-  }
-
-  setUsername(username: String) {
-    this.username = username;
-  }
-  setPassword(password: String) {
-    this.password = password;
   }
 }

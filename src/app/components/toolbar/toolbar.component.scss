@@ -1,5 +1,5 @@
 .toolbar-container {
-    height: 100px;
+    height: 40px;
     width: 100%;
     position: absolute;
     top: 0;
@@ -7,4 +7,38 @@
     z-index: 2;
     background: red;
     text-align: end;
+    display: flex;
+
+    h5 {
+        margin: 0;
+        align-self: center;
+        margin-right: 10px;
+    }
+}
+
+.toolbar-menu {
+    top: 40px;
+    right: 20px;
+    position: absolute;
+    background-color: white;
+    width: 80px;
+    border: solid;
+    padding: 5px;
+
+    label {
+        display: block;
+        cursor: pointer;
+        text-transform: uppercase;
+        margin: 5px;
+        border-bottom: solid 1px;
+        text-align: center;
+        padding-bottom: 5px;
+    }
+}
+
+.flex {
+    align-items: center;
+    display: inline-flex;
+    margin-right: 20px;
+    margin-left: auto;
 }

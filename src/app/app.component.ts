@@ -8,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'slp';
+
+  isLogged():boolean{
+    return localStorage.getItem('user') != null;
+  }
 }

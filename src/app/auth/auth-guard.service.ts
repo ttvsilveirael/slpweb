@@ -10,14 +10,11 @@ export class Guard implements CanActivate {
     canActivate(
         next: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): boolean {
-
         if (this.auth.isAuthenticated()) {
             return true;
         } else {
-
-            this.router.navigate(['']);
+            this.router.navigate(['login']);
             return false;
         }
-
     }
 }

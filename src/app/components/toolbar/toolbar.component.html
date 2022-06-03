@@ -1,8 +1,10 @@
 <div class="toolbar-container">
-    <h1>usuario</h1>
-    <button (click)="showmenu=!showmenu">menu</button>
-    <div [hidden]="showmenu">
+    <div class="flex">
+        <h5>usuario</h5>
+        <button (click)="showmenu=!showmenu">menu</button>
+    </div>
+    <div class="toolbar-menu" [hidden]="showmenu">
         <label>perfil</label>
-        <label>logout</label>
+        <label (click)="doLogout()">logout</label>
     </div>
 </div>

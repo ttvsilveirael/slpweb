@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu_item.component.scss']
 })
 export class MenuItemComponent {
-  menuItems = ['Aula', 'Perfil', 'Agenda', 'Sobre'];
+  menuItems = ['Aulas', 'Perfil'];
   constructor(private router:Router){}
   
   abrirPagina(item:String){
-    this.router.navigate(['/' + item]);
+    this.router.navigate(['/' + item.toLowerCase()]);
   }
 }

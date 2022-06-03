@@ -3,7 +3,7 @@
     text-align: center;
     background-image: linear-gradient(to bottom, rgb(151, 151, 151), rgb(255, 255, 255), rgb(151, 151, 151));
     margin: 0px;
-    height: 100vh;
+    height: calc(100vh - 40px);
     padding: 0px;
     transition: all 1s ease-in-out;
     overflow: hidden;

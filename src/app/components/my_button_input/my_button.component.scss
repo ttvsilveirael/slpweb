@@ -1,0 +1,29 @@
+.button {
+    background-color: #6283a7;
+    color: white;
+    text-align: center;
+    width: 250px;
+    margin: auto;
+    padding: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 30px;
+    box-shadow: 2px 4px 7px 3px #eee8e8;
+    cursor: pointer;
+    &:hover {
+        background-color: #567da5;
+    }
+    label {
+        cursor: pointer;
+    }
+}
+.disabled{
+    background-color: #76787a;
+    &:hover {
+        background-color: #76787a;
+    }
+    label {
+        cursor: auto;
+    }
+    cursor: auto;
+}

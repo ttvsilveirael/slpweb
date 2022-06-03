@@ -6,6 +6,6 @@ export class AuthService {
     }
 
     public isAuthenticated(): boolean {
-        return true;
+        return localStorage.getItem('user') != null;
     }
 }
