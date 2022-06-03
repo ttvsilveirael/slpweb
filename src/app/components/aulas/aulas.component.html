@@ -1,4 +1,17 @@
 <div class="aulas">
-
-    <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg">
+    <input type="text" [(ngModel)]="filterText">
+    <div class="youtube-videos">
+        <div *ngFor="let aula of aulas; let i = index" class="video-container" (click)="openAula(i)">
+            <div class="header">
+                {{aula?.nome}}
+            </div>
+            <iframe class="frameAula" width="280" height="120" [src]="safeSrc(aula)" title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+            <div class="footer">
+                {{aula?.descricao}}
+            </div>
+        </div>
+    </div>
 </div>

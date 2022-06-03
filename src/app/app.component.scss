@@ -1,18 +1,35 @@
 menu {
     padding: 0px;
     margin: 0px;
+    margin-top: 40px;
     z-index: 3;
-    position: absolute;
     left: 0;
     top: 40px;
+    width: 42px;
 }
 
-:host ::ng-deep app-home {
-    width: calc(100% - 42px);
-    height: 100%;
-    background-image: linear-gradient(to left, #fff, #000);
-    display: block;
+:host ::ng-deep {
+
+    app-root {
+        display: flex;
+    }
+
+    app-home {
+        width: calc(100% - 42px);
+        height: 100%;
+        background-image: linear-gradient(to left, #fff, #000);
+        display: block;
+        top: 0;
+        right: 0;
+    }
+}
+
+.main-container {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 80px;
+    left: 80px;
+    z-index: 0;
+    width: calc(100% - 162px);
+    background: #383636;
+    border-radius: 20px;
 }
