@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./menu_item.component.scss']
 })
 export class MenuItemComponent {
-  menuItems = ['Aulas', 'Perfil'];
+  menuItems = ['Aulas', 'Perfil', 'Agenda', 'Sobre'];
   constructor(private router:Router){}
   
   abrirPagina(item:String){

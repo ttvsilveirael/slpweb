@@ -11,6 +11,10 @@ import { MyTextInputComponent } from "./my_text_input/my_text_input.component";
 import { MyButtonComponent } from "./my_button_input/my_button.component";
 import { LoginComponent } from "./login/login.component";
 import { AulasComponent } from "./aulas/aulas.component";
+import { VideoPlayerComponent } from "./video-player/video_player.component";
+import { SobreComponent } from "./sobre/sobre.component";
+import { AgendaComponent } from "./agenda/agenda.component";
+import { PerfilComponent } from "./perfil/perfil.component";
 
 
 @NgModule({
@@ -22,7 +26,11 @@ import { AulasComponent } from "./aulas/aulas.component";
         LoginComponent,
         MyButtonComponent,
         MyTextInputComponent,
-        AulasComponent
+        AulasComponent,
+        VideoPlayerComponent,
+        SobreComponent,
+        PerfilComponent,
+        AgendaComponent
     ],
     exports: [
         HomeComponent,
@@ -32,7 +40,11 @@ import { AulasComponent } from "./aulas/aulas.component";
         LoginComponent,
         MyButtonComponent,
         MyTextInputComponent,
-        AulasComponent
+        AulasComponent,
+        VideoPlayerComponent,
+        SobreComponent,
+        AgendaComponent,
+        PerfilComponent
     ],
 
     imports: [
