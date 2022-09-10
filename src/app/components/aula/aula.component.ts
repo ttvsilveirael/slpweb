@@ -1,38 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ActivatedRoute, Route } from '@angular/router';
-import { aulas } from 'src/app/app.component';
-import { Aula } from 'src/app/models/Aula';
+import { YoutubeService } from 'src/app/services/youtube';
 
 @Component({
-    selector: 'aula',
-    templateUrl: './aula.component.html',
-    styleUrls: ['./aula.component.scss']
+  selector: 'aula',
+  templateUrl: './aula.component.html',
+  styleUrls: ['./aula.component.scss']
 })
 export class AulaComponent {
-    aula: Aula | undefined;
-    constructor(private sanitizer: DomSanitizer, private route: ActivatedRoute) {
-        this.route.queryParams.subscribe(params => {
-            let id = params['id'];
-            this.aula = this.getAula(id);
-        });
-    }
+
+  @Input(`value`)
+  set aula(ev: any) {
+    this.youtube.getVideoById(ev.snippet.resourceId.videoId).subscribe(
+      video => { 
+        this.video = video; 
+      }
+    )
+    this._aula = ev;
+  }
+  get aula() { return this._aula }
+  _aula: any;
+  video: any;
+
+  constructor(private sanitizer: DomSanitizer, private youtube: YoutubeService) {
+
+  }
 
 
-    get aulas() { return aulas }
-    getAula(posicao: number = 0) {
-        if (aulas == null) {
-            return;
-        }
-        if (aulas.length == 0) {
-            return;
-        }
-        return aulas[posicao] as Aula;
-    }
-
-    safeSrc(aula: Aula | undefined) {
-        if (aula == undefined) { return; }
-        return this.sanitizer.bypassSecurityTrustResourceUrl(aula.youtube);
-    }
+  safeSrc() {
+    if (this.video == undefined) { return; }
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.video.items[0].id}`);
+  }
 
 }
