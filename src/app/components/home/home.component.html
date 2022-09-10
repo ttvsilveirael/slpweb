@@ -1,1 +1,25 @@
-<div class="home"></div>
+<div class="dashboard">
+  <div class="top list">
+    <div class="selectedList"
+         (click)="showList = !showList">
+      {{selectedPlaylist?.snippet?.title}}
+    </div>
+    <div class="dropdown-container"
+         *ngIf="showList">
+      <div *ngFor="let list of playlists"
+           (click)="selectItem(list)">
+        <div class="playlist"
+             *ngIf="list != selectedPlaylist">
+          <div class="playlist--item">
+            {{list?.snippet?.title}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modules">
+    <div *ngFor="let video of videos">
+      <aula [value]="video"></aula>
+    </div>
+  </div>
+</div>

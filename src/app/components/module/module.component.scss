@@ -1,0 +1,21 @@
+:host {
+  &:ng-deep {
+    iframe {
+      .ytp-playlist-menu {
+        display: block !important;
+        width: 50px;
+      }
+    }
+  }
+}
+
+.ytp-playlist-menu {
+  display: block !important;
+  width: 55px;
+}
+iframe {
+  .ytp-playlist-menu {
+    display: block !important;
+    width: 58px;
+  }
+}

@@ -1,10 +1,23 @@
-<div class="login-container">
-    <!-- <my-image [assetSrc]="'profile.png'"></my-image> -->
-    <my-textinput [ngClass]="usernameError ? 'error':''" (valueChanged)="setUsername($event)" [placeholder]="'Usuario'" >
-    </my-textinput>
-
-    <my-textinput [ngClass]="passwordError ? 'error':''" (enterEvent)="doLogin()" (valueChanged)="setPassword($event)"
-        [placeholder]="'Senha'" [type]="'password'"></my-textinput>
-
-    <my-button (click)="doLogin()" [label]="'login'"></my-button>
+<div class="login-container"
+     *ngIf="user">
+  <!-- <my-image [assetSrc]="'profile.png'"></my-image> -->
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input type="email"
+           matInput
+           [(ngModel)]="user.username"
+           placeholder="email@email.com">
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Senha</mat-label>
+    <input type="password"
+           matInput
+           [(ngModel)]="user.password"
+           placeholder="password">
+    <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+  </mat-form-field>
+  <div class="buttons">
+    <button (click)="doLogin()" mat-raised-button>Login</button>
+  </div>
 </div>

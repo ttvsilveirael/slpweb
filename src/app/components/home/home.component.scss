@@ -1,0 +1,25 @@
+.selectedList {
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  box-shadow: 4px 23px 24px -20px #cfcfcf;
+}
+.dropdown-container {
+  position: absolute;
+  top: 60px;
+  text-align: center;
+  left: 0;
+  width: 100%;
+  cursor: pointer;
+  box-shadow: 4px 23px 24px -20px #1f1f1f;
+  z-index: 2;
+  background: white;
+}
+.playlist {
+  padding: 15px;
+  border-top: 1px solid #ccc;
+  cursor: pointer;
+}
+aula {
+  margin: 80px;
+}

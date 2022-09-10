@@ -1,27 +1,24 @@
 my-textinput {
-    margin: 15px;
-    display: block;
+  margin: 15px;
+  display: block;
 }
 
 .login-container {
-    display: block;
-    padding: 40px;
-    margin-top: 21vh;
-    height: 130px;
-    width: 520px;
-    background: #c3c1c1;
-    margin: 21vh auto;
-    border-radius: 30px;
-    box-shadow: 5px 10px 18px 4px;
+  display: flex;
+  flex-direction: column;
+  margin-top: 21vh;
+  margin: 21vh auto;
+  text-align: center;
+  width: 90%;
+  max-width: 450px;
 }
 
-my-button {
-    margin-top: 30px;
-    display: block;
+mat-form-field {
+  margin: 10px;
 }
-
-.error {
-    ::ng-deep input {
-        border: solid 2px #851111ad;
-    }
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }

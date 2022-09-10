@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
@@ -8,53 +9,55 @@ import { User } from 'src/app/models/User';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(public router: Router) { }
+  constructor(public router: Router, private http: HttpClient) { }
+
   usernameError: Boolean = false;
   passwordError: Boolean = false;
   confirmarSenha: String = '';
 
   ngOnInit(): void {
-    this.user = new User('', '');
   }
-  public user: User | undefined;
-
-
-  setUsername(event: any) {
-    this.user?.setUsername(event);
-  }
-
-  setPassword(event: any) {
-    this.user?.setPassword(event);
-  }
+  public user: User = new User();
 
   setconfirmarSenha(event: any) {
     this.confirmarSenha = event;
   }
 
   doLogin() {
-    if (this.confirmarSenha == this.user?.password) {
+    if (this.user.password && this.user.username) {
+      localStorage.setItem('user', JSON.stringify(this.user));
+      this.router.navigate(['']);
+    }else{
+      
+    }
 
-    }
-    this.usernameError = false;
-    this.passwordError = false;
+    // this.http.get('http://localhost:3000').subscribe(
+    //   {
+    //     next: data => {
+    //       console.log(data)
+    //     },
+    //     error: err => {
+    //       console.log(err)
+    //     },
+    //     complete: () => {
+    //       console.log("Complete")
+    //     }
+    //   }
+    // );
 
-    if (this.user == null) {
-      console.log("User not detected.");
-      this.usernameError = true;
-      return;
-    }
-    if (this.user?.username == null || this.user.username == '') {
-      console.log("Type a user");
-      this.usernameError = true;
-      return;
-    }
-    if (this.user?.password == null || this.user.password == '') {
-      console.log("Type a password");
-      this.passwordError = true;
-      return;
-    }
-    localStorage.setItem('user', JSON.stringify(this.user));
-    this.router.navigate(['']);
+    // this.http.get('http://localhost:3000').subscribe({
+    //   next: data => {
+    //     console.log(data);
+    //     let u = (data as any)[0];
+    //     this.user = new User(u.name, '***');
+    //     localStorage.setItem('user', JSON.stringify(this.user));
+    //     this.router.navigate(['']);
+    //   },
+    //   error: error => {
+    //     console.log(error);
+    //     console.error('There was an error!', error);
+    //   }
+    // });
 
   }
 
