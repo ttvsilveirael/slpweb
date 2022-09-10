@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-const apiKey = 'AIzaSyB4Ynlp2xWwvusIWnZiwa-NraqDxcDLRaw';
+const apiKey = '';
 
 @Injectable()
 export class YoutubeService {
