@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Module } from 'src/app/models/Module';
 import { YoutubeService } from 'src/app/services/youtube';
 
 @Component({
@@ -52,22 +51,7 @@ export class HomeComponent {
   selectItem(list: any) {
     this.selectedPlaylist = list;
     this.showList = false;
-    console.log(list)
   }
-
-  modules: Module[] = [
-    {
-      title: 'Desenvolvimento Web com Angular',
-      description: 'Estudando desenvolvimento web, falando sobre a htmls, css, javascript, typescript, frameworks e aplicando Angular.',
-      content: 'https://www.youtube.com/embed/videoseries?list=PLDsQmT-Sg0HhrtQyld_gwJBA80sbEzYfA',
-      id: 1
-    }, {
-      title: 'Desenvolvimento Web API com Node',
-      description: 'Estudando banco de dados e backend implementando algumas libraries em node.',
-      content: 'https://www.youtube.com/embed/videoseries?list=PLDsQmT-Sg0HhcP8OXP6_6xz0i7XTRsFGN',
-      id: 2
-    },
-  ]
 
 }
 
