@@ -10,7 +10,7 @@ const routes: Routes = [
   { path: 'aulas', component: AulasComponent, canActivate: [Guard] },
   { path: 'aula', component: AulaComponent, canActivate: [Guard] },
   { path: 'login', component: LoginComponent },
-  { path: '', canActivate: [Guard], component: HomeComponent}
+  { path: '', component: HomeComponent, canActivate: [Guard] }
 ];
 
 @NgModule({
