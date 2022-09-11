@@ -2,8 +2,8 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { environment } from "src/environments/environment";
+import { menuitem, PlaylistService } from "../models/Playlist";
 import { videoModel, VideoService } from "../models/Video";
-import { easyService, menuitem } from "./easy";
 
 @Injectable()
 export class YoutubeService {
@@ -13,7 +13,7 @@ export class YoutubeService {
   _videos: any = new BehaviorSubject<any>(undefined);
   get videos(): Observable<any> { return this._videos.asObservable() }
 
-  constructor(private http: HttpClient, private easy: easyService, private video: VideoService) { }
+  constructor(private http: HttpClient, private playlist: PlaylistService, private video: VideoService) { }
   get apiKey() { return environment.apiKey }
   getVideosForPlaylists(playlist: any, { maxResults = 3, force = false }) {
     if (!force) {
@@ -46,7 +46,7 @@ export class YoutubeService {
 
   getPlaylistsForChanel(channel: any, maxResults = 3) {
     try {
-      let strMen = this.easy.storageMenuItems.get();
+      let strMen = this.playlist.storageMenuItems.get();
       if (strMen != null && strMen.length > 0) {
         this._playlists.next(strMen);
         return;
@@ -64,7 +64,7 @@ export class YoutubeService {
           id: item?.id?.playlistId
         })
       });
-      this.easy.setMenuItem(nList);
+      this.playlist.setMenuItem(nList);
       this._playlists.next(nList)
     });
   }

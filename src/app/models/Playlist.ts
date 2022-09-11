@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 
 @Injectable()
-export class easyService {
+export class PlaylistService {
   storageMenuItems: menuItems = new menuItems();
 
   setMenuItem(values: any) {

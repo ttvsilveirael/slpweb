@@ -11,8 +11,8 @@ import { AppComponent } from './app.component';
 import { Guard } from './auth/auth-guard.service';
 import { AuthService } from './auth/auth.service';
 import { ComponentsModule } from './components/components.module';
+import { PlaylistService } from './models/Playlist';
 import { VideoService } from './models/Video';
-import { easyService } from './services/easy';
 import { YoutubeService } from './services/youtube';
 
 let gapiClientConfig: NgGapiClientConfig = {
@@ -40,7 +40,7 @@ let gapiClientConfig: NgGapiClientConfig = {
       useValue: gapiClientConfig
     })
   ],
-  providers: [AuthService, Guard, YoutubeService, easyService, VideoService],
+  providers: [AuthService, Guard, YoutubeService, PlaylistService, VideoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
