@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/User';
+declare var google:any;
 
 @Component({
   selector: 'login',
@@ -24,44 +25,20 @@ export class LoginComponent implements OnInit {
   }
 
   doLogin() {
+    console.log(google);
     if (this.user.password && this.user.username) {
       localStorage.setItem('user', JSON.stringify(this.user));
       this.router.navigate(['']);
-    }else{
-      
+    } else {
+
     }
-
-    // this.http.get('http://localhost:3000').subscribe(
-    //   {
-    //     next: data => {
-    //       console.log(data)
-    //     },
-    //     error: err => {
-    //       console.log(err)
-    //     },
-    //     complete: () => {
-    //       console.log("Complete")
-    //     }
-    //   }
-    // );
-
-    // this.http.get('http://localhost:3000').subscribe({
-    //   next: data => {
-    //     console.log(data);
-    //     let u = (data as any)[0];
-    //     this.user = new User(u.name, '***');
-    //     localStorage.setItem('user', JSON.stringify(this.user));
-    //     this.router.navigate(['']);
-    //   },
-    //   error: error => {
-    //     console.log(error);
-    //     console.error('There was an error!', error);
-    //   }
-    // });
 
   }
 
   doLogout() {
     localStorage.removeItem('user');
+  }
+  handleCredentialResponse(ev:any){
+    console.log(ev)
   }
 }
