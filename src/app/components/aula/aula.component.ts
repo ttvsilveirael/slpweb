@@ -11,11 +11,6 @@ export class AulaComponent {
 
   @Input(`value`)
   set aula(ev: any) {
-    this.youtube.getVideoById(ev.snippet.resourceId.videoId).subscribe(
-      video => { 
-        this.video = video; 
-      }
-    )
     this._aula = ev;
   }
   get aula() { return this._aula }
@@ -28,8 +23,8 @@ export class AulaComponent {
 
 
   safeSrc() {
-    if (this.video == undefined) { return; }
-    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.video.items[0].id}`);
+    if (this._aula == undefined) { return; }
+    return this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this._aula.id}`);
   }
 
 }

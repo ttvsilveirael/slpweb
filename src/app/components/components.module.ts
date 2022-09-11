@@ -5,7 +5,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { BrowserModule } from "@angular/platform-browser";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { YoutubeService } from "../services/youtube";
 import { AulaComponent } from "./aula/aula.component";
 import { AulasComponent } from "./aulas/aulas.component";
 import { HomeComponent } from "./home/home.component";
@@ -52,9 +51,6 @@ import { ToolbarComponent } from "./toolbar/toolbar.component";
     MatButtonModule,
     MatInputModule,
   ],
-  providers: [
-    YoutubeService
-  ]
 
 })
 export class ComponentsModule { }

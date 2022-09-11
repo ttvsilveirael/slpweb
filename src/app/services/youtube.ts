@@ -1,28 +1,76 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-
-const apiKey = '';
+import { BehaviorSubject, Observable } from "rxjs";
+import { environment } from "src/environments/environment";
+import { playlistitem, PlaylistService } from "../models/Playlist";
+import { videoModel, VideoService } from "../models/Video";
 
 @Injectable()
 export class YoutubeService {
+  _playlists: any = new BehaviorSubject<any>(undefined);
+  get playlists(): Observable<any> { return this._playlists.asObservable() }
 
-  constructor(private http: HttpClient) { }
+  _videos: any = new BehaviorSubject<any>(undefined);
+  get videos(): Observable<any> { return this._videos.asObservable() }
 
-  getVideosForChanel(channel: any, maxResults = 20) {
-    let url = 'https://www.googleapis.com/youtube/v3/search?key=' + apiKey + '&channelId=' + channel + '&order=date&part=snippet&type=video,id&maxResults=' + maxResults
-    return this.http.get(url);
+  constructor(private http: HttpClient, private playlist: PlaylistService, private video: VideoService) { }
+  get apiKey() { return environment.apiKey }
+  getVideosForPlaylists(playlist: any, { maxResults = 3, force = false }) {
+    if (!force) {
+      try {
+        let strMen = this.video.storageVideoItems.get();
+        if (strMen != null && strMen.length > 0) {
+          this._videos.next(strMen);
+          return;
+        }
+      } catch (err) {
+        console.log(`Error retrieving from videos storage`);
+      }
+    }
+    let url = `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${playlist}&key=${this.apiKey}&part=snippet&maxResults=${maxResults}`
+    this.http.get(url).subscribe(ev => {
+      let nList: videoModel[] = [];
+      (ev as any).items.forEach((item: any) => {
+        nList.push({
+          playlistId: item?.snippet?.playlistId,
+          description: item?.snippet?.description,
+          title: item?.snippet?.title,
+          videoOwnerChannelTitle: item?.snippet?.videoOwnerChannelTitle,
+          id: item?.snippet?.resourceId?.videoId,
+        })
+      });
+      this.video.setVideoItem(nList);
+      this._videos.next(nList)
+    });
   }
-  getPlaylistsForChanel(channel: any, maxResults = 20) {
-    let url = 'https://www.googleapis.com/youtube/v3/search?key=' + apiKey + '&channelId=' + channel + '&order=date&part=snippet&type=playlist,id&maxResults=' + maxResults
-    return this.http.get(url);
+
+  getPlaylistsForChanel(channel: any, maxResults = 3) {
+    try {
+      let strMen = this.playlist.storagePlaylistItems.get();
+      if (strMen != null && strMen.length > 0) {
+        this._playlists.next(strMen);
+        return;
+      }
+    } catch (err) {
+      console.log(`Error retrieving playlists from storage`);
+    }
+
+    let url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.apiKey + '&channelId=' + channel + '&order=date&part=snippet&type=playlist,id&maxResults=' + maxResults
+    this.http.get(url).subscribe(ev => {
+      let nList: playlistitem[] = [];
+      (ev as any).items.forEach((item: any) => {
+        nList.push({
+          title: item?.snippet?.title,
+          id: item?.id?.playlistId
+        })
+      });
+      this.playlist.setPlaylistItem(nList);
+      this._playlists.next(nList)
+    });
   }
-  getVideosForPlaylists(playlist: any, maxResults = 20) {
-    let url = `https://www.googleapis.com/youtube/v3/playlistItems?playlistId=${playlist}&key=${apiKey}&part=snippet&maxResults=15`
-    return this.http.get(url);
-  }
-  getVideoById(id:any){
-    let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${apiKey}&maxResults=15`;
+
+  getVideoById(id: any) {
+    let url = `https://www.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${this.apiKey}`;
     return this.http.get(url);
   }
 }
-// 'https://youtube.googleapis.com/youtube/v3/playlists?id=PLDsQmT-Sg0HhrtQyld_gwJBA80sbEzYfA&key=[YOUR_API_KEY]' \

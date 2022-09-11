@@ -20,6 +20,14 @@
   border-top: 1px solid #ccc;
   cursor: pointer;
 }
-aula {
-  margin: 80px;
+.videos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 40px;
+  padding-bottom: 40px;
+  &--item {
+    max-width: 380px;
+    margin: 10px;
+  }
 }

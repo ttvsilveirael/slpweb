@@ -2,23 +2,25 @@
   <div class="top list">
     <div class="selectedList"
          (click)="showList = !showList">
-      {{selectedPlaylist?.snippet?.title}}
+      {{selectedPlaylist?.title}}
     </div>
     <div class="dropdown-container"
-         *ngIf="showList">
+         *ngIf="showList && playlists != null && playlists != undefined">
       <div *ngFor="let list of playlists"
            (click)="selectItem(list)">
         <div class="playlist"
              *ngIf="list != selectedPlaylist">
           <div class="playlist--item">
-            {{list?.snippet?.title}}
+            {{list?.title}}
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="modules">
-    <div *ngFor="let video of videos">
+  <div class="videos"
+  *ngIf="videos != null && videos != undefined">
+    <div class="videos--item"
+         *ngFor="let video of videos">
       <aula [value]="video"></aula>
     </div>
   </div>

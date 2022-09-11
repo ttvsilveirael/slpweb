@@ -15,4 +15,8 @@ Inicie pela branch [main], mas nunca envie alterações para ela!
 -Commite suas mudanças após testar e criar alterações
                             (Previne perca de código)
 
-
+Update environment with a google api key
+export const environment = {
+  production: false,
+  apiKey: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'
+};
