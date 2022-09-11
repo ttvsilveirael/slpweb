@@ -2,7 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { BehaviorSubject, Observable } from "rxjs";
 import { environment } from "src/environments/environment";
-import { menuitem, PlaylistService } from "../models/Playlist";
+import { playlistitem, PlaylistService } from "../models/Playlist";
 import { videoModel, VideoService } from "../models/Video";
 
 @Injectable()
@@ -46,7 +46,7 @@ export class YoutubeService {
 
   getPlaylistsForChanel(channel: any, maxResults = 3) {
     try {
-      let strMen = this.playlist.storageMenuItems.get();
+      let strMen = this.playlist.storagePlaylistItems.get();
       if (strMen != null && strMen.length > 0) {
         this._playlists.next(strMen);
         return;
@@ -57,14 +57,14 @@ export class YoutubeService {
 
     let url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.apiKey + '&channelId=' + channel + '&order=date&part=snippet&type=playlist,id&maxResults=' + maxResults
     this.http.get(url).subscribe(ev => {
-      let nList: menuitem[] = [];
+      let nList: playlistitem[] = [];
       (ev as any).items.forEach((item: any) => {
         nList.push({
           title: item?.snippet?.title,
           id: item?.id?.playlistId
         })
       });
-      this.playlist.setMenuItem(nList);
+      this.playlist.setPlaylistItem(nList);
       this._playlists.next(nList)
     });
   }

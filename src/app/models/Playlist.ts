@@ -2,24 +2,24 @@ import { Injectable } from "@angular/core";
 
 @Injectable()
 export class PlaylistService {
-  storageMenuItems: menuItems = new menuItems();
+  storagePlaylistItems: playlistItems = new playlistItems();
 
-  setMenuItem(values: any) {
-    let items: menuitem[] = [];
+  setPlaylistItem(values: any) {
+    let items: playlistitem[] = [];
 
     values.forEach((value: any) => {
       items.push({ title: value.title, id: value.id });
     });
 
-    let menu = new menuItems().set(items);
-    this.storageMenuItems.set(menu);
+    let playlist = new playlistItems().set(items);
+    this.storagePlaylistItems.set(playlist);
   }
 
 }
 
-export class menuItems {
+export class playlistItems {
   _tries = 0;
-  _values?: menuitem[]
+  _values?: playlistitem[]
   get() {
     if (this._values == null && this._tries < 1) {
       let list = JSON.parse(localStorage.getItem(`mList`) as any);
@@ -39,7 +39,7 @@ export class menuItems {
   }
 }
 
-export class menuitem {
+export class playlistitem {
   title!: string;
   id!: string;
 }
